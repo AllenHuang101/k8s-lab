@@ -1,0 +1,4 @@
+resources:
+  - conf.yaml
+  - service.yaml
+  - nginx.yaml

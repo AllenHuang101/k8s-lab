@@ -1,0 +1,31 @@
+1. docker container run(docker run)
+# 啟動一個容器
+docker run --name=c1 -it busybox sh
+
+2. docker container ls(docker ps)
+# 列出正在運行的容器
+
+3. docker attach
+# 進入到容器，並且使用終端機掛載進容器
+docker start c1
+docker attach c1
+
+4. docker exec
+# 進到容器裡面執行一個命令
+docker exec -it c1 sh
+docker exec -it c1 ifconfig
+
+5. --rm
+# 當主要應用程式退出，容器就會自動砍掉。
+docker run --name=c1 --rm -it busybox ifconfig
+
+# nginx
+docker run -p 8080:80 -d -v $(pwd)/nginx:/usr/share/nginx/html nginx:latest
+
+
+# docker commit
+docker commit -a=allen c1 busybox-allen
+
+
+# docker build
+docker build -t imagelab --build-arg VERSION_INFO=1.0.0 -f Dockerfile-2 .

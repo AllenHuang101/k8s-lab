@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: aspnetcorek8s-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: aspnetcorek8s.asus.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: aspnetcorek8s-service
+          servicePort: 80

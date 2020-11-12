@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-resource-limit-pod
+  labels:
+    app: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    # Always: 每次 Pod 启动或者重启，都去镜像中心拉取镜像；
+    # Never: 每次 Pod 启动或者重启，都不去拉取镜像，而是使用本地的；
+    # IfNotPresent: 每次 Pod 启动或者重启时，先从本地找有没有该镜像，如果本地存在，则使用本地的，否则去镜像中心拉取；
+    imagePullPolicy: Always
+    resources:
+        # request memory 64 MB, cpu 0.25 核
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
+         # limit memory 128 MB, cpu 0.5 核
+         # 若沒有指定，則沒上限
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+    ports:
+    - containerPort: 80

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: aspnetcorek8s
+  name: aspnetcorek8s-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: aspnetcorek8s
+  template:
+    metadata:
+      labels:
+        app: aspnetcorek8s
+    spec:
+      containers:
+      - image: allenhuang19840311/aspnetcorek8s:1.0
+        name: aspnetcorek8s
+        imagePullPolicy: Always

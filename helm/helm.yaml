@@ -1,0 +1,28 @@
+helm create test-app
+helm install test-app .
+helm list
+helm get values test
+helm upgrade test --set image.tag=latest .
+helm get values test
+helm get manifest test
+helm rollback test
+helm list
+helm get manifest test
+helm delete mywordpress
+
+
+# wordpress
+# helm pull stable/wordpress
+# tar zxvf wordpress-9.0.3.tgz
+# helm install mywordpress .
+helm install mywordpress stable/wordpress 
+
+# aspnetcore demo
+helm create aspnetcoredemo
+helm install aspnetcoredemo .
+helm get manifest aspnetcoredemo
+helm upgrade aspnetcoredemo  --set image.tag=latest .
+helm get values aspnetcoredemo
+helm rollback aspnetcoredemo
+helm get manifest aspnetcoredemo | grep image
+

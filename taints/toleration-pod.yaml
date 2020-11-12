@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  labels:
+    app: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+  nodeSelector:
+    kubernetes.io/hostname: k8s-node1
+  tolerations:
+  - effect: "NoSchedule"
+    key: "test1"
+    value: "test1"
+    operator: "Equal"

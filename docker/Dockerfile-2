@@ -1,0 +1,18 @@
+FROM alpine
+ARG VERSION_INFO
+VOLUME /data
+ENV key1=value1
+# RUN apk add --update redis
+RUN apk update \
+        && apk upgrade \
+        && apk add vim
+COPY . /tmp/
+
+RUN echo 你的版本資訊：${VERSION_INFO}
+# CMD ["ls"]
+CMD ["-l"]
+ENTRYPOINT ["ls"]
+
+# docker rm $(docker ps -aq)
+# docker run --name=c1 -it imagelab -help
+# docker run --name=c2 -it imagelab -al
