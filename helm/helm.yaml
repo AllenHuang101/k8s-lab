@@ -1,5 +1,6 @@
 helm create test-app
 helm install test-app .
+helm install test-app . -f values.yaml
 helm list
 helm get values test
 helm upgrade test --set image.tag=latest .

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: nginx-nfs-pod
+ name: nginx-nfs-deploy
 spec:
   selector:
     matchLabels:
